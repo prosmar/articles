@@ -54,7 +54,8 @@
 		</div>
 	</nav>
 
-	<header id="fh5co-header" class="fh5co-cover" role="banner" >
+	<header id="fh5co-header" role="banner" style="background: #8BC34A;">
+
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row">
@@ -65,7 +66,7 @@
 
 						</div>
 							
-							<h1 class="mb30">Welcome, Pro!</h1>
+							<h1 class="mb30"></h1>
 							<p style="font-size: larger;">
 Linx, Bash, Asterisk , AGI, AMI, Java, Php, Hibernate, WSDL, Android, Python, Hypersql
 </p>
@@ -96,7 +97,7 @@ Linx, Bash, Asterisk , AGI, AMI, Java, Php, Hibernate, WSDL, Android, Python, Hy
 or if you want your windows run basic linux command. </br>Install gitbash.
 For the installer, please click the link <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>
 </br>
-We need to define first the list of things we need:</br>
+<h5>We need to define first the list of things we need:</h5></br>
 <b>1.</b> Python . 
 Verify if python(lib) is installed in your system by <i>running command</i>: <b># python</b>.</br>You must be login as root.
 If you were able to successfully enter the python cli (see: image below), bravo, python is already installed. Otherwise, you have to do installation on it.</br>
@@ -109,9 +110,60 @@ For details and installation of Zeep. Click this link <a href="http://docs.pytho
 </br>
 For guide on how to install pip. Follow this link <a href="https://packaging.python.org/install_requirements_linux/#centos-rhel">https://packaging.python.org/install_requirements_linux/</a>
 </br>
+<b>3.</b> Pyst2. Set of interfaces and libraries to allow programming of Asterisk from python.</br>
+For details. See this link <a href="https://github.com/rdegges/pyst2">https://github.com/rdegges/pyst2</a>
+</br>
+The above libraries are needed in this example. </br>
+Now. Let us proceed to do the coding skills. </br>
 
+First. Navigate to this directory <b>/var/lib/asterisk/agi-bin</b>. <i> by running command:</i><b>#cd /var/lib/asterisk/agi-bin</b>.</br>
+By default asterisk read all the agi under this directory so it is highly required to place all your agi 
+under this directory for making it sure asterisk will execute it.</br>
+Otherwise, you will have some trouble.
+</br></br>
+Now, you can use your own text editor. In this example I am using <i>vim</i>.</br><i>command:</i><b>#vim webservices.py</b>. 
+</br>Webservices is the filename and extension py for python.</br>
+</br></br>
+
+<h5>Start of the code</h5>
+For every script it must begin with the identification of the <b>environment where to execute</b> or what type of execution it does.
+</br>
+<b>#!/usr/bin/env python</b> ==> beginning of code tells the machine to execute using the Python interpreter. 
+It tells that any version python installed is the system that is present in environment variables will be the one to used during the execution.
+</br>
+<b>#!/usr/bin/python</b> ==> This one is a hard coded, which means we are telling the system that this will be the one to used. 
+</br>We can specify the directory of the python installation directory
+</br>
+We need a live services, this time we will be using the global example by: <a href="http://www.w3schools.com/xml/tempconvert.asmx?WSDL">w3Schools</a>.
+</br>
+The first thing here is that we'will follow the idea on how to use the zeep in consuming webserivces using python.
+</br>
+<b>Code:</b>
+<h5>
+<img src="images/py1.png"/>
+</h5>
+Save and exit, inside vim editor, <i>press esc. command: </i><b>:wq</b> and enter.
+</br>
+Run the sample python script in consuming the wsdl.
+
+<i>command: #</i><b>python webservices.agi</b>
+
+It must have a correct output like this one. <image src="images/py2.png"/>
+</br>
+Now, we are heading to the agi part. Open the file <b>webservices.agi</b>. Follow the below code. </br>
+
+<b>Code:</b>
+<h5>
+<img src="images/working.png"/>
+
+</h5>
+</br>
+We are using <b>zeep</b> python client in consuming the wsdl in python.</br>
+We are using agi lib <b>pyst2</b> to make our transaction with asterisk-python easier.
+</br></br>
+And that's all.
+Next, suggested link is java hibernate webservices. Tools to used (java,hibernate,hypersql).
 </p>
-<img src="images/pageunderconstruct.png" />				
 					</div>
 				</div>
 			
